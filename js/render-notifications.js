@@ -10,7 +10,7 @@ const onSuccessOverlayClick = (evt) => !evt.target.closest('.success__inner') &&
 const onSuccessPopupEsc = (evt) => isEscapeKey(evt) && removeSuccessNotification();
 const renderNotification = (element) => document.body.appendChild(element);
 const onErrorButtonClick = () => removeErrorNotification();
-const onErrorOverlayClick = (evt) => !evt.target.closest('error__inner') && removeErrorNotification();
+const onErrorOverlayClick = (evt) => !evt.target.closest('.error__inner') && removeErrorNotification();
 const onErrorPopupEsc = (evt) => isEscapeKey(evt) && removeErrorNotification();
 
 const showSuccessPopup = () => {

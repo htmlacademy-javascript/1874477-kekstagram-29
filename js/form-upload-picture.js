@@ -15,7 +15,7 @@ const closeUploadPhoto = () => {
   commentInput.value = '';
   URL.revokeObjectURL(photoPreview.src);
   uploadOverlay.classList.add('hidden');
-  document.body.classList.remove('.modal-open');
+  document.body.classList.remove('modal-open');
   formUploadPhoto.reset();
   pristine.reset();
   effectLevelSlider.noUiSlider.destroy();
@@ -39,7 +39,7 @@ const uploadPhoto = () => {
     }
 
     uploadOverlay.classList.remove('hidden');
-    document.body.classList.add('.modal-open');
+    document.body.classList.add('modal-open');
 
     initSlider();
     addEvent();
@@ -53,7 +53,7 @@ const onOverlayClick = (evt) => {
 };
 
 const onPictureEsc = (evt) => {
-  if (isEscapeKey(evt) && !hashtagInput.contains(evt.target) && !commentInput.contains(evt.target)) {
+  if (isEscapeKey(evt) && !hashtagInput.contains(evt.target) && !commentInput.contains(evt.target) && !evt.target.contains(document.querySelector('.error'))) {
     evt.preventDefault();
     closeUploadPhoto();
   }
@@ -64,7 +64,7 @@ function addEvent() {
   uploadScale.addEventListener('click', changePhotoScale);
   effectsList.addEventListener('change', onFilterChange);
   closeButtonEditor.addEventListener('click', closeUploadPhoto);
-  document.addEventListener('click', onOverlayClick);
+  uploadOverlay.addEventListener('click', onOverlayClick);
   document.addEventListener('keydown', onPictureEsc);
 }
 
@@ -74,7 +74,7 @@ function removeEvent() {
   effectsList.removeEventListener('change', onFilterChange);
   closeButtonEditor.removeEventListener('click', closeUploadPhoto);
   document.removeEventListener('keydown', onPictureEsc);
-  document.removeEventListener('click', onOverlayClick);
+  uploadOverlay.removeEventListener('click', onOverlayClick);
 }
 
 export {

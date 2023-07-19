@@ -35,8 +35,8 @@ const getLoadComments = () => {
   createPictureComments(additionalComments);
 
   // Показываем кол-во отрисованных коментариев
-  commentsCountList.textContent =
-    `${pictureComments.children.length} из ${commentsShowArray.length} комментариев`;
+  commentsCountList.innerHTML =
+    `${pictureComments.children.length} из <span class="comments-count">${commentsShowArray.length}</span> комментариев`;
 
   // Когда загрузили все комментарии
   if (commentsShowArray.length <= pictureComments.children.length) {
@@ -49,10 +49,12 @@ const fillComments = ({ comments }) => {
 
   createPictureComments(showFirstComments);
 
-  commentsCountList.textContent = `${showFirstComments.length} из ${comments.length} комментариев`;
+  commentsCountList.innerHTML =
+  `${showFirstComments.length} из <span class="comments-count">${comments.length}</span> комментариев`;
 
   if (comments.length % 10 === 1 && comments.length !== 11) {
-    commentsCountList.textContent = `${showFirstComments.length} из ${comments.length} комментария`;
+    commentsCountList.innerHTML =
+    `${showFirstComments.length} из <span class="comments-count">${comments.length}</span> комментария`;
   }
 
   // Если изначально у нас <= 5 комментариев

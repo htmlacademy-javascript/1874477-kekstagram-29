@@ -19,10 +19,10 @@ const pristine = new Pristine(formUploadPhoto, {
   errorTextParent: 'img-upload__field-wrapper',
   errorTextClass: 'img-upload__field-wrapper--error',
   errorTextTag: 'p'
-}, false);
+});
 
 const validateHashtags = () => {
-  const hashtags = hashtagInput.value.trim().split(/\s+/);
+  const hashtags = hashtagInput.value.trim().toLowerCase().split(/\s+/);
   const uniqueHashtags = new Set(hashtags.map((item) => item.toLowerCase()));
   let isValid = true;
 

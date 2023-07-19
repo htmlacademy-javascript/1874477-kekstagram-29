@@ -1,4 +1,4 @@
-import { MAX_THUMBNAILS_COUNT } from './config.js';
+import { THUMBNAILS_AMOUNT } from './config.js';
 
 const filterContainer = document.querySelector('.img-filters');
 const Filter = {
@@ -16,7 +16,7 @@ const sortByComments = (pictureA, pictureB) => pictureB.comments.length - pictur
 const getFilteredPictures = () => {
   switch (currentFilter) {
     case Filter.RANDOM:
-      return [...pictures].sort(sortRandomly).slice(0, MAX_THUMBNAILS_COUNT);
+      return [...pictures].sort(sortRandomly).slice(0, THUMBNAILS_AMOUNT);
     case Filter.DISCUSSED:
       return [...pictures].sort(sortByComments);
     default:
